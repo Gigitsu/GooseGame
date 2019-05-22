@@ -37,7 +37,7 @@ class GooseGame {
 
       // last cell reached
       if (finishingLine == 63) Board() -> s"$msg\n\nA new board has been generated. Let's play again!"
-      else board.find { case (_, position) => position == finishingLine } match {
+      else board.find { case (n, p) => n != name && p == finishingLine } match {
         case Some((pranked, _)) =>
           board.updated(name, finishingLine).updated(pranked, from) -> s"$msg On $finishingLine there is $pranked, who returns to $from."
         case None =>
