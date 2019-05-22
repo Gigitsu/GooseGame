@@ -88,8 +88,6 @@ object GooseGame extends App {
       case (board, commands.AddPlayer(name)) => gg.addPlayer(board, name)
       case (board, commands.MovePlayer(name, x1, x2)) => gg.movePlayer(board, name, x1.toInt, x2.toInt)
       case (board, commands.TossAndMovePlayer(name)) => gg.movePlayer(board, name)
-      case (board, _) =>
-        println("Command not recognized.")
-        board
+      case (board, _) => board -> "Command not recognized."
     }
 }
